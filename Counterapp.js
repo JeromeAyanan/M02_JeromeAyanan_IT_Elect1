@@ -1,17 +1,22 @@
-import React, { useState } from "react";
-import { View, Text, Button, StyleSheet } from "react-native";
-
-export default function App() {
+import { StyleSheet, Text, View, Button } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import React, { useState } from 'react';
+function Counterapp() {
   const [count, setCount] = useState(0);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.counterText}>Counter: {count}</Text>
+      <Text>{count}</Text>
 
-      <View style={styles.buttonRow}>
-        <Button title="➖ Decrement" onPress={() => setCount(count - 1)} />
-        <Button title="➕ Increment" onPress={() => setCount(count + 1)} />
+      <View style={styles.buttonContainer}>
+        <Button title="Increment" onPress={() => setCount(count + 1)} />
       </View>
+
+      <View style={styles.buttonContainer}>
+        <Button title="Decrement" onPress={() => setCount(count - 1)} />
+      </View>
+
+      <StatusBar style="auto" />
     </View>
   );
 }
@@ -19,17 +24,13 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#f5f5f5",
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  counterText: {
-    fontSize: 28,
-    marginBottom: 20,
-    fontWeight: "bold",
-  },
-  buttonRow: {
-    flexDirection: "row",
-    gap: 15,
-  },
+  buttonContainer: {
+    marginVertical: 5, 
+    width: 150,
+  }
 });
+export default Counterapp;

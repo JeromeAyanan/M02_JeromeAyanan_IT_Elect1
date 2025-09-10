@@ -1,19 +1,24 @@
-import React, { useState } from "react";
-import { View, Text, Button, StyleSheet } from "react-native";
+import React, { useState } from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
-export default function App() {
-  const colors = ["white", "lightblue", "lightpink"]; // Default + 2 light colors
-  const [colorIndex, setColorIndex] = useState(0);
-
-  const changeColor = () => {
-    setColorIndex((prevIndex) => (prevIndex + 1) % colors.length);
-  };
+export default function ColorChangeApp() {
+  const [bgColor, setBgColor] = useState('white');
 
   return (
-    <View style={[styles.container, { backgroundColor: colors[colorIndex] }]}>
-      <Text style={styles.text}>Background Color: {colors[colorIndex]}</Text>
+    <View style={[styles.container, { backgroundColor: bgColor ,
+      height: 500,
+      width: 599,
+    }]}>
+      <Text style={styles.title}>Color Changer App</Text>
 
-      <Button title="Change Background" onPress={changeColor} />
+      
+      <Button title="White" onPress={() => setBgColor('white')} />
+
+    
+      <Button title="Light Blue" onPress={() => setBgColor('lightblue')} />
+
+
+      <Button title="Light Green" onPress={() => setBgColor('lightgreen')} />
     </View>
   );
 }
@@ -21,12 +26,13 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
+    
   },
-  text: {
-    fontSize: 20,
+  title: {
+    fontSize: 24,
     marginBottom: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
 });
