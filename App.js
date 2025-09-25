@@ -1,33 +1,30 @@
+import  ColorChangeApp from '.ColorChangeApp/';
 
-import React,{useState} from "react";
-import {SafeAreaView,StyleSheet,Button,View
-} from 'react-native';
-import ChatScreen from "./ChatScreen.js";
-import CommentInput from "./CommentInput.js";
+import { StyleSheet, Text, View, Button } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import React, { useState } from 'react';
+
+
 export default function App() {
-  const [ page,setPage]=useState("chat");
-
 
   return (
- <SafeAreaView style={styles.container}>
- {page === "chat" &&<ChatScreen/>}
- {page === "comment"&&<CommentInput/>}
-  <View style={styles.buttons}>
-  <Button title="Go to Chat"
-  onPress={()=>setPage("chat")}/>
-  <Button title="Go to Comment"
-  onPress={()=>setPage("comment")}/>
-  </View>
- </SafeAreaView>
-   )
+    <View style={styles.container}>
+
+
+< ColorChangeApp/>
+
+
+    
+      <StatusBar style="auto" />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-  container:{
-    flex:1
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  buttons:{
-    flex:1
-  }
-  
 });
